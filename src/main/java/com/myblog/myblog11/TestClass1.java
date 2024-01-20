@@ -1,5 +1,7 @@
 package com.myblog.myblog11;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -117,11 +119,12 @@ public class TestClass1 {
 //        names.forEach(nameList);
 //    }
 
-    // Supplier Functional Interface
-    public static void main(String[] args) {
-        // Define a supplier to generate random numbers
-        Supplier<Integer> x = ()->new Random().nextInt(100);
-        Integer y = x.get();
-        System.out.println(y);
-    }
+//    // Supplier Functional Interface
+//    public static void main(String[] args) {
+//        // Define a supplier to generate random numbers
+//        Supplier<Integer> x = ()->new Random().nextInt(100);
+//        Integer y = x.get();
+//        System.out.println(y);
+//    }
+
 }
