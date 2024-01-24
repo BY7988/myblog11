@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 @SpringBootTest
 class Myblog11ApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }

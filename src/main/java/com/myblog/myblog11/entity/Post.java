@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Entity
-@Table(name="posts")
+@Table(name = "posts")
 @Data //getter and setters are ready
 @AllArgsConstructor
 @NoArgsConstructor
 public class Post {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
     private String description;

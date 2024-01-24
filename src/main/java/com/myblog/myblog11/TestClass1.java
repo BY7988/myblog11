@@ -2,17 +2,18 @@ package com.myblog.myblog11;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+import com.myblog.myblog11.LoginDto;
+import com.myblog.myblog11.Login;
+
 public class TestClass1 {
+
 //    public static void main(String[] args) {
 //        Predicate<Integer> val = x->x%2==0;
 //        boolean result = val.test(10);
@@ -126,5 +127,72 @@ public class TestClass1 {
 //        Integer y = x.get();
 //        System.out.println(y);
 //    }
+//    public static void main(String[] args) {
+//        List<Login> logins = Arrays.asList(new Login("mike","testing"),
+//                                           new Login("stallin","testing"),
+//                                           new Login("adam","testing")
+//        );
+//        List<LoginDto> dtos = logins.stream().map(login -> mapToDto(login)).collect(Collectors.toList());
+//        System.out.println(dtos);
+//    }
+//     static LoginDto mapToDto(Login login){
+//        LoginDto dto = new LoginDto();
+//        dto.setUserName(login.getUserName());
+//        dto.setPassword(login.getPassword());
+//        return dto;
+//    }
+
+
+//    public static void main(String[] args) {
+//        List<Employee> employees = Arrays.asList(new Employee("mike", 30, "chennai"),
+//                                                new Employee("adam", 25, "chennai"),
+//                                                new Employee("stallin", 31, "pune"),
+//                                                new Employee("sam", 34, "bangalore")
+//        );
+//        List<Employee> emps = employees.stream().filter(emp -> emp.getAge() > 30).collect(Collectors.toList());
+//        for (Employee e:emps){
+//            System.out.println(e.getName());
+//            System.out.println(e.getCity());
+//            System.out.println(e.getAge());
+//        }
+//    }
+
+//    //Filter Even number and Generate square of that
+//    public static void main(String[] args) {
+//        List<Integer> numbers = Arrays.asList(10,12,6,5,7,8,9);
+//        List<Integer> data = numbers.stream().filter(n1 -> n1 % 2 == 0).map(n2 -> n2 * n2).collect(Collectors.toList());
+//        System.out.println(data);
+//    }
+
+
+    //Group By
+    public static void main(String[] args) {
+        List<Employee> employees = Arrays.asList(new Employee("mike", 30, "chennai"),
+                new Employee("adam", 25, "chennai"),
+                new Employee("stallin", 34, "pune"),
+                new Employee("sam", 34, "bangalore")
+        );
+        Map<String, List<Employee>> collect1 = employees.stream().collect(Collectors.groupingBy(e -> e.getCity()));
+        Map<Integer, List<Employee>> collect = employees.stream().collect(Collectors.groupingBy(e -> e.getAge()));
+        for (Map.Entry<Integer, List<Employee>> entry : collect.entrySet()) {
+            int age = entry.getKey();
+            List<Employee> employeesWithAge = entry.getValue();
+            System.out.println("age:" + age + "---");
+            for (Employee e : employeesWithAge) {
+                System.out.println(e.getName());
+                System.out.println(e.getCity());
+            }
+        }
+
+        for (Map.Entry<String, List<Employee>> entry : collect1.entrySet()) {
+            String city = entry.getKey();
+            List<Employee> employeesWithAge = entry.getValue();
+            System.out.println("city:" + city + "---");
+            for (Employee e : employeesWithAge) {
+                System.out.println(e.getName());
+                System.out.println(e.getAge());
+            }
+        }
+    }
 
 }
