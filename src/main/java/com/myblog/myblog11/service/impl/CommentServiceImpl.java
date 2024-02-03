@@ -25,8 +25,8 @@ public class CommentServiceImpl implements CommentService {
                 ()->new ResourceNotFoundException("Post Not Found With Id:"+postId)
         );
         Comment comment = new Comment();
-        comment.setEmail(comment.getEmail());
-        comment.setText(comment.getText());
+        comment.setEmail(commentDto.getEmail());
+        comment.setText(commentDto.getText());
         comment.setPost(post);
 
         Comment savedComment = commentRepository.save(comment);

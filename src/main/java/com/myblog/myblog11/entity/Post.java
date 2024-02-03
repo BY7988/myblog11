@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
+import java.util.List;
+
 @Entity
 @Table(name = "posts")
 @Data //getter and setters are ready
@@ -18,4 +20,6 @@ public class Post {
     private String title;
     private String description;
     private String content;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "post")
+    private List<Comment> comments;
 }
